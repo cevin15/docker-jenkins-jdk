@@ -6,8 +6,7 @@ ENV JENKINS_HOME /var/jenkins_home
 
 VOLUME /var/jdk
 VOLUME /var/jenkins_home
-
-VOLUME /opt/data/jenkins.war
+VOLUME /opt/data
 
 RUN apt-get update
 RUN apt-get install -y curl
