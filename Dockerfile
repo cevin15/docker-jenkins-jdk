@@ -8,6 +8,10 @@ VOLUME /var/jdk
 VOLUME /var/jenkins_home
 VOLUME /opt/data
 
+//设置时区为东八区
+RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
+
+//安装git客户端
 RUN apt-get update
 RUN apt-get install -y curl
 RUN apt-get install -y git && \
