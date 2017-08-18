@@ -9,7 +9,8 @@ VOLUME /var/jenkins_home
 VOLUME /opt/data
 
 //设置时区为东八区
-RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 //安装git客户端
 RUN apt-get update
