@@ -8,11 +8,9 @@ VOLUME /var/jdk
 VOLUME /var/jenkins_home
 VOLUME /opt/data
 
-//设置时区为东八区
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-//安装git客户端
 RUN apt-get update
 RUN apt-get install -y curl
 RUN apt-get install -y git && \
